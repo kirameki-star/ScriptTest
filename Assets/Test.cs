@@ -20,24 +20,20 @@ public class Boss
             Debug.Log(damage + "のダメージを受けた");
             // 残りhpを減らす
             this.hp -= damage;
+    }
+
+    //発展課題、魔法攻撃用の関数 
+    public void Magic() 
+    {
+        if (mp >= 5)
+        {
+            this.mp -= 5;
+            Debug.Log("魔法攻撃をした。残りMPは" + mp);
         }
 
-    //発展課題、魔法攻撃用の関数
-    public void Magic()
-    {
-        for (int a = 0; a <= 10; a++)
+        else
         {
-
-                if (mp >= 5)
-                {
-                    this.mp -= 5;
-                    Debug.Log("魔法攻撃をした。残りMPは" + mp);
-                }
-
-                else
-                {
-                    Debug.Log("MPが足りないため、魔法が使えない");
-                }
+            Debug.Log("MPが足りないため、魔法が使えない");
         }
     }
 }
@@ -78,7 +74,11 @@ public class Test : MonoBehaviour
         //lastboss.Defence(3);
 
         //発展課題、魔法攻撃用の関数を呼び出す
-        lastboss.Magic();
+        for (int a = 0; a <= 10; a++)
+        {
+             lastboss.Magic();
+        }
+        
     }
 
     // Update is called once per frame
